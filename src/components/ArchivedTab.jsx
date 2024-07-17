@@ -29,7 +29,7 @@ const ArchivedTab = ({ data }) => {
 
   return (
     <div className='flex flex-col gap-3'>
-      <Button className='flex gap-3 bg-gray-100' variant='outline' onClick={mutation.mutate} disabled={mutation.isLoading}>
+      <Button className='flex gap-3 bg-gray-100 hover:bg-gray-200' variant='outline' onClick={mutation.mutate} disabled={mutation.isLoading}>
         {mutation.isLoading ? (
           <Loader2 className='mr-2 h-4 w-4 animate-spin' />
         ) : (
