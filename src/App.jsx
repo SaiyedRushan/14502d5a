@@ -24,13 +24,13 @@ function App() {
     <Router>
       <div className='container flex flex-col'>
         <Header />
-        <div className='container-view bg-slate-100 flex-grow overflow-y-auto'>
+        <div className='container-view bg-slate-100 dark:bg-slate-900 flex-grow overflow-y-auto'>
           <Routes>
             <Route path='/' element={<ActivityFeed data={data} error={error} isLoading={isLoading} isError={isError} />} />
             <Route path='/keypad' element={<Keypad />} />
           </Routes>
         </div>
-        <div className='sticky bottom-0 w-full '>
+        <div className='sticky bottom-0 w-full dark:bg-black'>
           <Footer activities={data} />
         </div>
       </div>

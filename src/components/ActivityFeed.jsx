@@ -37,11 +37,11 @@ const ActivityFeed = ({ data, error, isLoading, isError }) => {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value='inbox' className={`transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
+        <TabsContent value='inbox' className={`dark:text-white transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <InboxTab data={inboxData} />
         </TabsContent>
 
-        <TabsContent value='archived' className={`transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
+        <TabsContent value='archived' className={` dark:text-white transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <ArchivedTab data={archivedData} />
         </TabsContent>
       </Tabs>

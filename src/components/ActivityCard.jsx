@@ -25,7 +25,7 @@ const ActivityCard = ({ activity, tab }) => {
   return (
     <AccordionItem value={activity.id}>
       <AccordionTrigger>
-        <div className='flex p-4 gap-5 rounded-lg bg-white justify-between items-center w-full'>
+        <div className='flex p-4 gap-5 rounded-lg bg-white dark:bg-slate-800 justify-between items-center w-full'>
           <div className='flex gap-6 items-center'>
             {activity.call_type == "missed" ? <PhoneMissed size={20} className='text-red-400' /> : activity.direction == "inbound" ? <PhoneIncomingIcon size={20} /> : <PhoneOutgoingIcon size={20} />}
 
@@ -47,7 +47,7 @@ const ActivityCard = ({ activity, tab }) => {
             <p className='text-slate-500'>On: {new Date(activity.created_at).toLocaleDateString()}</p>
           </div>
           <div>
-            <Button variant='outline' className='bg-red-300 text-black hover:bg-red-400' onClick={() => updateIsArchivedCallMutation.mutate(activity.id)}>
+            <Button variant='outline' className='bg-red-300 text-black dark:text-white hover:bg-red-400' onClick={() => updateIsArchivedCallMutation.mutate(activity.id)}>
               <ArchiveIcon className='mr-2 h-4 w-4' />
               {tab == "archived" ? "Unarchive" : "Archive"}
             </Button>
