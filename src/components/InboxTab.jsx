@@ -25,9 +25,10 @@ const InboxTab = ({ data }) => {
       setArchiving(true)
       await Promise.all(data.map((call) => archiveCallMutation.mutateAsync(call.id)))
       queryClient.invalidateQueries("activities")
-      setArchiving(false)
     } catch (error) {
       console.error("Error archiving one or more calls:", error)
+    } finally {
+      setArchiving(false)
     }
   }
 
