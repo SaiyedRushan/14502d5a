@@ -25,7 +25,7 @@ function App() {
       <div className='container flex flex-col'>
         <Header />
         {/* need a router here */}
-        <div className='container-view bg-gray-100 flex-grow overflow-y-auto'>
+        <div className='container-view bg-slate-100 flex-grow overflow-y-auto'>
           <Routes>
             <Route path='/' element={<ActivityFeed data={data} error={error} isLoading={isLoading} isError={isError} />} />
             <Route path='/keypad' element={<Keypad />} />
