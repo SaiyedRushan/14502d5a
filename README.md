@@ -1,8 +1,29 @@
-# React + Vite
+# Phone Call App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project was developed using React, Vite, React Query, React Router, Tailwind, shadcn/ui and Bun.
+The project allows the user to see their activity on the phone calls. The user can also archive individual or all calls. The user can also reset all calls which unarchives all calls.
+NOTE: The files in @/components/ui are components that were installed by shadcn/ui.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo:
+
+![Demo GIF](demo.gif)
+
+## Installation
+
+```bash
+bun install
+```
+
+## Usage
+
+```bash
+bun dev
+```
+
+## Build
+
+```bash
+bun run build
+```
