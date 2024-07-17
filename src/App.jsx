@@ -6,7 +6,7 @@ import Footer from "./components/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Keypad from "./components/Keypad"
 import axios from "axios"
-axios.defaults.baseURL = "https://aircall-backend.onrender.com"
+axios.defaults.baseURL = import.meta.env.VITE_APP_BACKEND_URL
 
 function App() {
   const fetchActivities = async () => {
