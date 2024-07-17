@@ -15,7 +15,7 @@ const ArchivedTab = ({ data }) => {
     return response.data
   }
 
-  const groupedCalls = useMemo(() => groupCallsByDate(data.filter((activity) => activity.is_archived) || []), [data])
+  const groupedCalls = useMemo(() => groupCallsByDate(data || []), [data])
 
   const mutation = useMutation({
     mutationFn: resetAllCalls,
@@ -29,7 +29,7 @@ const ArchivedTab = ({ data }) => {
 
   return (
     <div className='flex flex-col gap-3'>
-      <Button className='flex gap-3 bg-gray-100 hover:bg-gray-200' variant='outline' onClick={mutation.mutate} disabled={mutation.isLoading}>
+      <Button className='flex gap-3 bg-gray-100 hover:bg-gray-200' variant='outline' onClick={mutation.mutate} disabled={mutation.isLoading || data.length === 0}>
         {mutation.isLoading ? (
           <Loader2 className='mr-2 h-4 w-4 animate-spin' />
         ) : (

@@ -18,7 +18,7 @@ const InboxTab = ({ data }) => {
     },
   })
 
-  const groupedCalls = useMemo(() => groupCallsByDate(data.filter((activity) => activity.direction == "inbound" && !activity.is_archived) || []), [data])
+  const groupedCalls = useMemo(() => groupCallsByDate(data || []), [data])
 
   const handleArchiveAll = async () => {
     try {
@@ -33,7 +33,7 @@ const InboxTab = ({ data }) => {
 
   return (
     <div className='flex flex-col gap-3'>
-      <Button className='flex gap-3 bg-gray-100 hover:bg-gray-200' variant='outline' onClick={handleArchiveAll}>
+      <Button className='flex gap-3 bg-gray-100 hover:bg-gray-200' variant='outline' onClick={handleArchiveAll} disabled={archiving || data.length === 0}>
         {archiving ? (
           <Loader2 className='mr-2 h-4 w-4 animate-spin' />
         ) : (

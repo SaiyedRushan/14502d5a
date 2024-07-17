@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2 } from "lucide-react"
 import ArchivedTab from "./ArchivedTab"
 import InboxTab from "./InboxTab"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 const ActivityFeed = ({ data, error, isLoading, isError }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -13,6 +13,10 @@ const ActivityFeed = ({ data, error, isLoading, isError }) => {
     const timer = setTimeout(() => setIsVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
+
+  // Memoized filtered data
+  const inboxData = useMemo(() => data.filter((activity) => activity.direction === "inbound" && !activity.is_archived), [data])
+  const archivedData = useMemo(() => data.filter((activity) => activity.is_archived), [data])
 
   if (isLoading)
     return (
@@ -34,11 +38,11 @@ const ActivityFeed = ({ data, error, isLoading, isError }) => {
         </TabsList>
 
         <TabsContent value='inbox' className={`transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-          <InboxTab data={data} />
+          <InboxTab data={inboxData} />
         </TabsContent>
 
         <TabsContent value='archived' className={`transition-all duration-500 ease-in-out transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-          <ArchivedTab data={data} />
+          <ArchivedTab data={archivedData} />
         </TabsContent>
       </Tabs>
     </div>
