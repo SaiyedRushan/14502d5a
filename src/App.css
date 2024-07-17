@@ -42,4 +42,5 @@ body {
 
 #app .container-view {
   padding: 20px;
+  scrollbar-width: none;
 }
